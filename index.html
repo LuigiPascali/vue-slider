@@ -14,39 +14,42 @@
     <div id="app">
 
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
 
-                <div class="item">
-                    <img :src="slides[count].image" :alt="slides[count].title"/>
-                    <img v-if="slides.clickImmagine === true" :src="slides[count].image" alt="">
-                    <div class="text title-div">
-                        <h3>{{slides[count].title}}</h3>
-                        <p>
-                            {{slides[count].text}}
-                        </p>
-                    </div>
-                </div>
+          <div class="slider-wrapper" tabindex="0">
 
-                <div class="thumbs">
+            <div class="item">
 
-                    <div @click="prevButton()" class="prev">
-                        <i class="fa-solid fa-chevron-up"></i>
-                    </div>
-                    <div @click="nextButton()" class="next">
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </div>
-
-                    <div class="thumb" v-for="(singleItem, index) in slides">
-                        <div class="active" v-if="index === count"></div>
-                        <img :src="singleItem.image" :alt="slides[count].title" />
-                    </div>
-
-                </div>
+              <img :src="slides[count].image" :alt="slides[count].title"/>
+              <img v-if="slides.clickImmagine === true" :src="slides[count].image" alt="">
+              <div class="text title-div">
+                <h3>{{ slides[count].title }}</h3>
+                <p>{{ slides[count].text }}</p>
+              </div>
 
             </div>
+    
+            <div class="thumbs">
+
+              <div @click="prevButton()" class="prev">
+                <i class="fa-solid fa-chevron-up"></i>
+              </div>
+              <div @click="nextButton()" class="next">
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              
+              <!-- BONUS 1: -->
+              <div class="thumb" v-for="(singleItem, index) in slides" :key="index" @click="changeSlide(index)">
+                <div class="active" v-if="index === count"></div>
+                <img :src="singleItem.image" :alt="singleItem.title" />
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-    </div>    
+    </div>   
 
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script src="./js/script.js"></script>

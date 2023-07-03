@@ -53,6 +53,18 @@ createApp ({
                 this.count = (this.slides.length - 1);
             }
         },
+
+        // BONUS 1:
+        changeSlide(index) {
+            this.count = index;
+        },
+
+        addPointerClass(index) {
+            this.slides[index].isPointer = true;
+        },
+          removePointerClass(index) {
+            this.slides[index].isPointer = false;
+        },
     }
     
 }).mount('#app');

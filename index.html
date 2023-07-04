@@ -16,27 +16,32 @@
         <div class="container">
 
           <div class="slider-wrapper" tabindex="0">
+
             <div class="item">
+              
               <img :src="slides[count].image" :alt="slides[count].title"/>
               <img v-if="slides.clickImmagine === true" :src="slides[count].image" alt="">
               <div class="text title-div">
                 <h3>{{ slides[count].title }}</h3>
                 <p>{{ slides[count].text }}</p>
               </div>
+
             </div>
     
             <div class="thumbs">
+
               <div @click="prevButton()" class="prev">
                 <i class="fa-solid fa-chevron-up"></i>
               </div>
               <div @click="nextButton()" class="next">
                 <i class="fa-solid fa-chevron-down"></i>
               </div>
-    
+   
               <div class="thumb" v-for="(singleItem, index) in slides" :key="index" @click="changeSlide(index)">
                 <div :class="{'active': index === count, 'pointer': singleItem.isPointer}"></div>
                 <img :src="singleItem.image" :alt="singleItem.title" />
               </div>
+
             </div>
 
           </div>

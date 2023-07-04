@@ -43,7 +43,7 @@ createApp ({
     
 
     methods: {
-        
+      
         nextButton(){
             if (this.count < (this.slides.length - 1)){
                 this.count++ ;
@@ -72,6 +72,16 @@ createApp ({
           removePointerClass(index) {
             this.slides[index].isPointer = false;
         },
-    }
-    
-}).mount('#app');
+
+        // BONUS 2:
+        autoplay() {
+            setInterval(() => {
+              this.nextButton();
+            }, 3000);
+          }
+        },
+        mounted() {
+          this.autoplay();
+        }
+})
+.mount('#app');
